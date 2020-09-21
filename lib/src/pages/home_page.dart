@@ -15,6 +15,7 @@ class HomePage extends StatelessWidget {
           Positioned(top: 310, child: Image.asset('assets/landing.jpg', width: 375, height: 440)),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 54.0),
@@ -33,7 +34,10 @@ class HomePage extends StatelessWidget {
                     SizedBox(height: 55),
                     Text('Flutter in the Dark',
                         style: GoogleFonts.tradeWinds(
-                            fontSize: 72, color: Theme.of(context).primaryColor, fontWeight: FontWeight.normal, height: 1),
+                            fontSize: 72,
+                            color: Theme.of(context).primaryColor,
+                            fontWeight: FontWeight.normal,
+                            height: 1),
                         textAlign: TextAlign.center),
                     SizedBox(height: 230),
                     Text(
@@ -75,9 +79,17 @@ class HomePage extends StatelessWidget {
                     Text('60 MINUTOS',
                         style: GoogleFonts.workSans(
                             fontWeight: FontWeight.w900, fontSize: 18, letterSpacing: 0.1, color: Colors.white)),
-                    SizedBox(height: 70)
+                    SizedBox(height: 50)
                   ],
                 ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  for (int i = 0; i < MediaQuery.of(context).size.width ~/ 120; i++)
+                    Image.asset('assets/paper.png', fit: BoxFit.cover)
+                ],
               ),
               Container(
                 color: Theme.of(context).accentColor,
@@ -86,7 +98,7 @@ class HomePage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      SizedBox(height: 20),
+                      SizedBox(height: 10),
                       Text('ORGANIZAN',
                           style: GoogleFonts.workSans(fontWeight: FontWeight.w900, fontSize: 14, letterSpacing: 2)),
                       SizedBox(height: 20),
@@ -101,17 +113,26 @@ class HomePage extends StatelessWidget {
                           onPressed: () {},
                           child: Text('Código de conducta',
                               style: GoogleFonts.workSans(
-                                  decoration: TextDecoration.underline, fontSize: 14, letterSpacing: 1, color: Colors.white))),
+                                  decoration: TextDecoration.underline,
+                                  fontSize: 14,
+                                  letterSpacing: 1,
+                                  color: Colors.white))),
                       FlatButton(
                           onPressed: () {},
                           child: Text('Inscripciones',
                               style: GoogleFonts.workSans(
-                                  decoration: TextDecoration.underline, fontSize: 14, letterSpacing: 1, color: Colors.white))),
+                                  decoration: TextDecoration.underline,
+                                  fontSize: 14,
+                                  letterSpacing: 1,
+                                  color: Colors.white))),
                       FlatButton(
                           onPressed: () {},
                           child: Text('Sponsors',
                               style: GoogleFonts.workSans(
-                                  decoration: TextDecoration.underline, fontSize: 14, letterSpacing: 1, color: Colors.white))),
+                                  decoration: TextDecoration.underline,
+                                  fontSize: 14,
+                                  letterSpacing: 1,
+                                  color: Colors.white))),
                       SizedBox(height: 50),
                       Text('Sigue el evento',
                           style: GoogleFonts.workSans(
@@ -119,14 +140,35 @@ class HomePage extends StatelessWidget {
                       SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [Image.asset('assets/yt.png'), SizedBox(width: 30), Image.asset('assets/tw.png')],
+                        children: [
+                          GestureDetector(
+                              onTap: () {
+                                window.open(
+                                    'https://twitter.com/intent/tweet?url=https%3A%2F%2Fflutter-in-the-dark.web.app&hashtags=FlutterInTheDark',
+                                    'tab');
+                              },
+                              child: Image.asset('assets/yt.png')),
+                          SizedBox(width: 30),
+                          GestureDetector(
+                              onTap: () {
+                                window.open(
+                                    'https://twitter.com/intent/tweet?url=https%3A%2F%2Fflutter-in-the-dark.web.app&hashtags=FlutterInTheDark',
+                                    'tab');
+                              },
+                              child: Image.asset('assets/tw.png'))
+                        ],
                       ),
                       SizedBox(height: 30),
-                      Text('Photo by Christina Morillo',
-                          style: GoogleFonts.workSans(
-                              decoration: TextDecoration.underline,
-                              letterSpacing: 1,
-                              color: Theme.of(context).backgroundColor)),
+                      GestureDetector(
+                        onTap: () {
+                          window.open('https://www.pexels.com/@divinetechygirl', 'tab');
+                        },
+                        child: Text('Photo by Christina Morillo',
+                            style: GoogleFonts.workSans(
+                                decoration: TextDecoration.underline,
+                                letterSpacing: 1,
+                                color: Theme.of(context).backgroundColor)),
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
