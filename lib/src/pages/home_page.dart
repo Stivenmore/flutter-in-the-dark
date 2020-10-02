@@ -113,7 +113,9 @@ class HomePage extends StatelessWidget {
                       ),
                       SizedBox(height: 30),
                       FlatButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            window.open('https://flutter-in-the-dark.web.app/#/code-of-conduct', 'self');
+                          },
                           child: Text('Código de conducta',
                               style: GoogleFonts.workSans(
                                   decoration: TextDecoration.underline,
@@ -146,16 +148,14 @@ class HomePage extends StatelessWidget {
                         children: [
                           GestureDetector(
                               onTap: () {
-                                window.open(
-                                    'https://twitter.com/intent/tweet?url=https%3A%2F%2Fflutter-in-the-dark.web.app&hashtags=FlutterInTheDark',
-                                    'tab');
+                                window.open('https://www.youtube.com/channel/UCRrMSJGIf4aRWM1Tb1Iu5og', 'tab');
                               },
                               child: Image.asset('assets/yt.png')),
                           SizedBox(width: 30),
                           GestureDetector(
                               onTap: () {
                                 window.open(
-                                    'https://www.youtube.com/channel/UCRrMSJGIf4aRWM1Tb1Iu5og',
+                                    'https://twitter.com/intent/tweet?url=https%3A%2F%2Fflutter-in-the-dark.web.app&hashtags=FlutterInTheDark',
                                     'tab');
                               },
                               child: Image.asset('assets/tw.png'))
