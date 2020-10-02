@@ -18,7 +18,7 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 54.0),
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Column(
                   children: [
                     SizedBox(height: 30),
@@ -31,15 +31,18 @@ class HomePage extends StatelessWidget {
                     Text('ONLINE',
                         style: GoogleFonts.workSans(
                             fontWeight: FontWeight.w500, fontSize: 16, letterSpacing: 10, color: Colors.white)),
-                    SizedBox(height: 55),
-                    Text('Flutter in the Dark',
-                        style: GoogleFonts.tradeWinds(
-                            fontSize: 72,
-                            color: Theme.of(context).primaryColor,
-                            fontWeight: FontWeight.normal,
-                            height: 1),
-                        textAlign: TextAlign.center),
-                    SizedBox(height: 230),
+                    SizedBox(height: 75),
+                    SizedBox(
+                      width: 250,
+                      child: Text('Flutter in the Dark',
+                          style: GoogleFonts.tradeWinds(
+                              fontSize: 67,
+                              color: Theme.of(context).primaryColor,
+                              fontWeight: FontWeight.normal,
+                              height: 1),
+                          textAlign: TextAlign.center),
+                    ),
+                    SizedBox(height: 270),
                     Text(
                       'COMPARTE EL DESAFÍO CON LA COMUNIDAD FLUTTER',
                       style: GoogleFonts.workSans(
@@ -87,7 +90,7 @@ class HomePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  for (int i = 0; i < MediaQuery.of(context).size.width ~/ 120; i++)
+                  for (int i = 0; i < MediaQuery.of(context).size.width ~/ 100; i++)
                     Image.asset('assets/paper.png', fit: BoxFit.cover)
                 ],
               ),
@@ -152,7 +155,7 @@ class HomePage extends StatelessWidget {
                           GestureDetector(
                               onTap: () {
                                 window.open(
-                                    'https://twitter.com/intent/tweet?url=https%3A%2F%2Fflutter-in-the-dark.web.app&hashtags=FlutterInTheDark',
+                                    'https://www.youtube.com/channel/UCRrMSJGIf4aRWM1Tb1Iu5og',
                                     'tab');
                               },
                               child: Image.asset('assets/tw.png'))
