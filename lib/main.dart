@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_in_the_dark/src/pages/code_page.dart';
 import 'package:flutter_in_the_dark/src/pages/home_page.dart';
 
 void main() {
@@ -18,7 +19,11 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: HomePage(),
+      onGenerateRoute: (RouteSettings route) {
+        if (route.name == '/code-of-conduct') return MaterialPageRoute(builder: (context) => CodePage());
+
+        return MaterialPageRoute(builder: (context) => HomePage());
+      },
     );
   }
 }
-
