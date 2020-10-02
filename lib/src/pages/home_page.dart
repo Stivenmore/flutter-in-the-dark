@@ -2,6 +2,7 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_in_the_dark/src/layout/sizes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatelessWidget {
@@ -12,7 +13,10 @@ class HomePage extends StatelessWidget {
       body: SingleChildScrollView(
           child: Stack(
         children: [
-          Positioned(top: 310, child: Image.asset('assets/landing.jpg', width: 375, height: 440)),
+          Positioned(
+              top: 310,
+              left: Sizes.isWeb(context) ? MediaQuery.of(context).size.width / 3.5 : 0,
+              child: Image.asset('assets/landing.jpg', width: Sizes.isWeb(context) ? 600: 375, height: 440)),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -33,10 +37,10 @@ class HomePage extends StatelessWidget {
                             fontWeight: FontWeight.w500, fontSize: 16, letterSpacing: 10, color: Colors.white)),
                     SizedBox(height: 75),
                     SizedBox(
-                      width: 250,
+                      width: Sizes.isWeb(context) ? 600 : 250,
                       child: Text('Flutter in the Dark',
                           style: GoogleFonts.tradeWinds(
-                              fontSize: 67,
+                              fontSize: Sizes.isWeb(context) ? 120 :67,
                               color: Theme.of(context).primaryColor,
                               fontWeight: FontWeight.normal,
                               height: 1),
@@ -108,8 +112,8 @@ class HomePage extends StatelessWidget {
                       Image.asset('assets/fc.png'),
                       SizedBox(height: 30),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [Image.asset('assets/marbella.png'), Image.asset('assets/madrid.png')],
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [Image.asset('assets/marbella.png'), SizedBox(width: 60), Image.asset('assets/madrid.png')],
                       ),
                       SizedBox(height: 30),
                       FlatButton(
