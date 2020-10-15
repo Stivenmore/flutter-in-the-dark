@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
                 child: Column(
                   children: [
                     SizedBox(height: 30),
-                    Text('VIERNES 27 NOVIEMBRE',
+                    Text('JUEVES 3 DICIEMBRE',
                         style: GoogleFonts.workSans(
                             fontWeight: FontWeight.w900,
                             fontSize: 16,
