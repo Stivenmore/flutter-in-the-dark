@@ -2,10 +2,17 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 import 'package:flutter_in_the_dark/src/layout/sizes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatelessWidget {
+  final endTime = DateTime(2020, 11, 2, 00, 00);
+  final formLink = 'https://docs.google.com/forms/d/1yfI9i7HBBUV3zFTUn0aVy53mCIW7fahwX4q0Ve3inGU';
+  final memeLink = 'http://gph.is/19aLnvI';
+
+  int memeCount = 10;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +23,7 @@ class HomePage extends StatelessWidget {
           Positioned(
               top: 310,
               left: Sizes.isWeb(context) ? MediaQuery.of(context).size.width / 3.5 : 0,
-              child: Image.asset('assets/landing.jpg', width: Sizes.isWeb(context) ? 600: 375, height: 440)),
+              child: Image.asset('assets/landing.jpg', width: Sizes.isWeb(context) ? 600 : 375, height: 440)),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -40,7 +47,7 @@ class HomePage extends StatelessWidget {
                       width: Sizes.isWeb(context) ? 600 : 250,
                       child: Text('Flutter in the Dark',
                           style: GoogleFonts.tradeWinds(
-                              fontSize: Sizes.isWeb(context) ? 120 :67,
+                              fontSize: Sizes.isWeb(context) ? 120 : 67,
                               color: Theme.of(context).primaryColor,
                               fontWeight: FontWeight.normal,
                               height: 1),
@@ -58,13 +65,54 @@ class HomePage extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                     SizedBox(height: 30),
+                    Text(
+                      'Las inscripciones abren',
+                      style: GoogleFonts.workSans(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(height: 30),
                     MaterialButton(
                         color: Theme.of(context).primaryColor,
                         height: 50,
                         minWidth: 260,
-                        onPressed: () {},
-                        child:
-                            Text('Inscríbete', style: GoogleFonts.workSans(fontWeight: FontWeight.w900, fontSize: 24))),
+                        onPressed: DateTime.now().isAfter(endTime)
+                            ? () {
+                                window.open(formLink, 'tab');
+                              }
+                            : () {
+                                if (memeCount == 0) return window.open(memeLink, '_self');
+
+                                memeCount--;
+                              },
+                        child: Text('Inscríbete al Reto',
+                            style: GoogleFonts.workSans(fontWeight: FontWeight.w900, fontSize: 24))),
+                    SizedBox(height: 30),
+                    CountdownTimer(
+                      endTime: endTime.millisecondsSinceEpoch,
+                      widgetBuilder: (context, time) => Text(
+                        '${time.days} días, ${time.hours} horas, ${time.min} minutos y ${time.sec} segundos',
+                        style: GoogleFonts.workSans(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 18,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 30),
+                    SizedBox(
+                      height: 48,
+                      width: 258,
+                      child: OutlineButton(
+                          color: Colors.transparent,
+                          borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 2),
+                          onPressed: () {},
+                          child: Text('Quiero Asistir',
+                              style: GoogleFonts.workSans(
+                                  fontWeight: FontWeight.w900, fontSize: 24, color: Theme.of(context).primaryColor))),
+                    ),
                     SizedBox(height: 70),
                     Text('ÚNETE Y PON A PRUEBA TUS HABILIDADES CON FLUTTER Y DART',
                         style: GoogleFonts.workSans(
@@ -113,7 +161,11 @@ class HomePage extends StatelessWidget {
                       SizedBox(height: 30),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [Image.asset('assets/marbella.png'), SizedBox(width: 60), Image.asset('assets/madrid.png')],
+                        children: [
+                          Image.asset('assets/marbella.png'),
+                          SizedBox(width: 60),
+                          Image.asset('assets/madrid.png')
+                        ],
                       ),
                       SizedBox(height: 30),
                       FlatButton(
