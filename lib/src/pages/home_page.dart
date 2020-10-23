@@ -66,12 +66,38 @@ class HomePage extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                     SizedBox(height: 30),
+                    SizedBox(
+                      height: 48,
+                      width: 258,
+                      child: OutlineButton(
+                          color: Colors.transparent,
+                          borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 2),
+                          onPressed: () {
+                            window.open(meetupLink, 'tab');
+                          },
+                          child: Text('Quiero Asistir',
+                              style: GoogleFonts.workSans(
+                                  fontWeight: FontWeight.w900, fontSize: 24, color: Theme.of(context).primaryColor))),
+                    ),
+                    SizedBox(height: 30),
                     Text(
-                      'Las inscripciones abren',
+                      'Las inscripciones abren en:',
                       style: GoogleFonts.workSans(
                         fontWeight: FontWeight.w500,
                         fontSize: 18,
                         color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(height: 15),
+                    CountdownTimer(
+                      endTime: endTime.millisecondsSinceEpoch,
+                      widgetBuilder: (context, time) => Text(
+                        '${time.days} días, ${time.hours} horas, ${time.min} minutos y ${time.sec} segundos',
+                        style: GoogleFonts.workSans(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 18,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                     SizedBox(height: 30),
@@ -90,32 +116,6 @@ class HomePage extends StatelessWidget {
                               },
                         child: Text('Inscríbete al Reto',
                             style: GoogleFonts.workSans(fontWeight: FontWeight.w900, fontSize: 24))),
-                    SizedBox(height: 30),
-                    CountdownTimer(
-                      endTime: endTime.millisecondsSinceEpoch,
-                      widgetBuilder: (context, time) => Text(
-                        '${time.days} días, ${time.hours} horas, ${time.min} minutos y ${time.sec} segundos',
-                        style: GoogleFonts.workSans(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 18,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 30),
-                    SizedBox(
-                      height: 48,
-                      width: 258,
-                      child: OutlineButton(
-                          color: Colors.transparent,
-                          borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 2),
-                          onPressed: () {
-                              window.open(meetupLink, 'tab');
-                          },
-                          child: Text('Quiero Asistir',
-                              style: GoogleFonts.workSans(
-                                  fontWeight: FontWeight.w900, fontSize: 24, color: Theme.of(context).primaryColor))),
-                    ),
                     SizedBox(height: 70),
                     Text('ÚNETE Y PON A PRUEBA TUS HABILIDADES CON FLUTTER Y DART',
                         style: GoogleFonts.workSans(
