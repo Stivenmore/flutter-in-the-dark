@@ -10,6 +10,7 @@ class HomePage extends StatelessWidget {
   final endTime = DateTime(2020, 11, 2, 00, 00);
   final formLink = 'https://docs.google.com/forms/d/1yfI9i7HBBUV3zFTUn0aVy53mCIW7fahwX4q0Ve3inGU';
   final memeLink = 'http://gph.is/19aLnvI';
+  final meetupLink = 'https://www.meetup.com/es-ES/GDG-Marbella/events/274034431/';
 
   int memeCount = 10;
 
@@ -108,7 +109,9 @@ class HomePage extends StatelessWidget {
                       child: OutlineButton(
                           color: Colors.transparent,
                           borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 2),
-                          onPressed: () {},
+                          onPressed: () {
+                              window.open(meetupLink, 'tab');
+                          },
                           child: Text('Quiero Asistir',
                               style: GoogleFonts.workSans(
                                   fontWeight: FontWeight.w900, fontSize: 24, color: Theme.of(context).primaryColor))),
