@@ -8,9 +8,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatelessWidget {
   final endTime = DateTime(2020, 11, 2, 00, 00);
-  final formLink = 'https://docs.google.com/forms/d/1yfI9i7HBBUV3zFTUn0aVy53mCIW7fahwX4q0Ve3inGU';
+  final formLink =
+      'https://docs.google.com/forms/d/1yfI9i7HBBUV3zFTUn0aVy53mCIW7fahwX4q0Ve3inGU';
   final memeLink = 'http://gph.is/19aLnvI';
-  final meetupLink = 'https://www.meetup.com/es-ES/GDG-Marbella/events/274034431/';
+  final meetupLink =
+      'https://www.meetup.com/es-ES/GDG-Marbella/events/274034431/';
 
   int memeCount = 10;
 
@@ -23,8 +25,11 @@ class HomePage extends StatelessWidget {
         children: [
           Positioned(
               top: 310,
-              left: Sizes.isWeb(context) ? MediaQuery.of(context).size.width / 3.5 : 0,
-              child: Image.asset('assets/landing.jpg', width: Sizes.isWeb(context) ? 600 : 375, height: 440)),
+              left: Sizes.isWeb(context)
+                  ? MediaQuery.of(context).size.width / 3.5
+                  : 0,
+              child: Image.asset('assets/landing.jpg',
+                  width: Sizes.isWeb(context) ? 600 : 375, height: 440)),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -42,7 +47,10 @@ class HomePage extends StatelessWidget {
                             letterSpacing: 2)),
                     Text('ONLINE',
                         style: GoogleFonts.workSans(
-                            fontWeight: FontWeight.w500, fontSize: 16, letterSpacing: 10, color: Colors.white)),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16,
+                            letterSpacing: 10,
+                            color: Colors.white)),
                     SizedBox(height: 75),
                     SizedBox(
                       width: Sizes.isWeb(context) ? 600 : 250,
@@ -71,13 +79,16 @@ class HomePage extends StatelessWidget {
                       width: 258,
                       child: OutlineButton(
                           color: Colors.transparent,
-                          borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 2),
+                          borderSide: BorderSide(
+                              color: Theme.of(context).primaryColor, width: 2),
                           onPressed: () {
                             window.open(meetupLink, 'tab');
                           },
                           child: Text('Quiero Asistir',
                               style: GoogleFonts.workSans(
-                                  fontWeight: FontWeight.w900, fontSize: 24, color: Theme.of(context).primaryColor))),
+                                  fontWeight: FontWeight.w900,
+                                  fontSize: 24,
+                                  color: Theme.of(context).primaryColor))),
                     ),
                     SizedBox(height: 30),
                     Text(
@@ -92,7 +103,7 @@ class HomePage extends StatelessWidget {
                     CountdownTimer(
                       endTime: endTime.millisecondsSinceEpoch,
                       widgetBuilder: (context, time) => Text(
-                        '${time.days} días, ${time.hours} horas, ${time.min} minutos y ${time.sec} segundos',
+                        getTimeText(time),
                         style: GoogleFonts.workSans(
                           fontWeight: FontWeight.w500,
                           fontSize: 18,
@@ -110,14 +121,17 @@ class HomePage extends StatelessWidget {
                                 window.open(formLink, 'tab');
                               }
                             : () {
-                                if (memeCount == 0) return window.open(memeLink, '_self');
+                                if (memeCount == 0)
+                                  return window.open(memeLink, '_self');
 
                                 memeCount--;
                               },
                         child: Text('Inscríbete al Reto',
-                            style: GoogleFonts.workSans(fontWeight: FontWeight.w900, fontSize: 24))),
+                            style: GoogleFonts.workSans(
+                                fontWeight: FontWeight.w900, fontSize: 24))),
                     SizedBox(height: 70),
-                    Text('ÚNETE Y PON A PRUEBA TUS HABILIDADES CON FLUTTER Y DART',
+                    Text(
+                        'ÚNETE Y PON A PRUEBA TUS HABILIDADES CON FLUTTER Y DART',
                         style: GoogleFonts.workSans(
                             fontWeight: FontWeight.w500,
                             fontSize: 16,
@@ -128,15 +142,24 @@ class HomePage extends StatelessWidget {
                     SizedBox(height: 20),
                     Text('3 NIVELES',
                         style: GoogleFonts.workSans(
-                            fontWeight: FontWeight.w900, fontSize: 18, letterSpacing: 0.1, color: Colors.white)),
+                            fontWeight: FontWeight.w900,
+                            fontSize: 18,
+                            letterSpacing: 0.1,
+                            color: Colors.white)),
                     SizedBox(height: 20),
                     Text('3 RETOS',
                         style: GoogleFonts.workSans(
-                            fontWeight: FontWeight.w900, fontSize: 18, letterSpacing: 0.1, color: Colors.white)),
+                            fontWeight: FontWeight.w900,
+                            fontSize: 18,
+                            letterSpacing: 0.1,
+                            color: Colors.white)),
                     SizedBox(height: 20),
                     Text('60 MINUTOS',
                         style: GoogleFonts.workSans(
-                            fontWeight: FontWeight.w900, fontSize: 18, letterSpacing: 0.1, color: Colors.white)),
+                            fontWeight: FontWeight.w900,
+                            fontSize: 18,
+                            letterSpacing: 0.1,
+                            color: Colors.white)),
                     SizedBox(height: 50)
                   ],
                 ),
@@ -145,7 +168,9 @@ class HomePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  for (int i = 0; i < MediaQuery.of(context).size.width ~/ 100; i++)
+                  for (int i = 0;
+                      i < MediaQuery.of(context).size.width ~/ 100;
+                      i++)
                     Image.asset('assets/paper.png', fit: BoxFit.cover)
                 ],
               ),
@@ -158,7 +183,10 @@ class HomePage extends StatelessWidget {
                     children: [
                       SizedBox(height: 10),
                       Text('ORGANIZAN',
-                          style: GoogleFonts.workSans(fontWeight: FontWeight.w900, fontSize: 14, letterSpacing: 2)),
+                          style: GoogleFonts.workSans(
+                              fontWeight: FontWeight.w900,
+                              fontSize: 14,
+                              letterSpacing: 2)),
                       SizedBox(height: 20),
                       Image.asset('assets/fc.png'),
                       SizedBox(height: 30),
@@ -173,7 +201,9 @@ class HomePage extends StatelessWidget {
                       SizedBox(height: 30),
                       FlatButton(
                           onPressed: () {
-                            window.open('https://flutter-in-the-dark.web.app/#/code-of-conduct', 'self');
+                            window.open(
+                                'https://flutter-in-the-dark.web.app/#/code-of-conduct',
+                                'self');
                           },
                           child: Text('Código de conducta',
                               style: GoogleFonts.workSans(
@@ -200,14 +230,18 @@ class HomePage extends StatelessWidget {
                       SizedBox(height: 50),
                       Text('Sigue el evento',
                           style: GoogleFonts.workSans(
-                              fontWeight: FontWeight.w900, letterSpacing: 1, color: Theme.of(context).backgroundColor)),
+                              fontWeight: FontWeight.w900,
+                              letterSpacing: 1,
+                              color: Theme.of(context).backgroundColor)),
                       SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           GestureDetector(
                               onTap: () {
-                                window.open('https://www.youtube.com/channel/UCRrMSJGIf4aRWM1Tb1Iu5og', 'tab');
+                                window.open(
+                                    'https://www.youtube.com/channel/UCRrMSJGIf4aRWM1Tb1Iu5og',
+                                    'tab');
                               },
                               child: Image.asset('assets/yt.png')),
                           SizedBox(width: 30),
@@ -223,7 +257,8 @@ class HomePage extends StatelessWidget {
                       SizedBox(height: 30),
                       GestureDetector(
                         onTap: () {
-                          window.open('https://www.pexels.com/@divinetechygirl', 'tab');
+                          window.open(
+                              'https://www.pexels.com/@divinetechygirl', 'tab');
                         },
                         child: Text('Photo by Christina Morillo',
                             style: GoogleFonts.workSans(
@@ -238,7 +273,9 @@ class HomePage extends StatelessWidget {
                           SizedBox(width: 10),
                           Text('Made with Flutter Web',
                               style: GoogleFonts.workSans(
-                                  fontWeight: FontWeight.w600, fontSize: 12, color: Theme.of(context).backgroundColor)),
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 12,
+                                  color: Theme.of(context).backgroundColor)),
                           SizedBox(height: 50),
                         ],
                       ),
@@ -251,5 +288,16 @@ class HomePage extends StatelessWidget {
         ],
       )),
     );
+  }
+
+  String getTimeText(CurrentRemainingTime time) {
+    var timeText = '';
+
+    if (time.days != null) timeText += '${time.days} días';
+    if (time.hours != null) timeText += ' ${time.hours} horas';
+    if (time.min != null) timeText += ' ${time.min} minutos';
+    if (time.sec != null) timeText += ' ${time.sec} segundos';
+
+    return timeText;
   }
 }
