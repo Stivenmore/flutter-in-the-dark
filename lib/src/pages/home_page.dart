@@ -103,7 +103,7 @@ class HomePage extends StatelessWidget {
                     CountdownTimer(
                       endTime: endTime.millisecondsSinceEpoch,
                       widgetBuilder: (context, time) => Text(
-                        getTimeText(time),
+                        time != null ? getTimeText(time) : '¡Ya están abiertas!',
                         style: GoogleFonts.workSans(
                           fontWeight: FontWeight.w500,
                           fontSize: 18,
